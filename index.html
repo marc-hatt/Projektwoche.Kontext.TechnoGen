@@ -1,0 +1,44 @@
+<html>
+<!-- Terminal-Befehl: python -m SimpleHTTPServer 8000 -->
+<!-- Server-URL: http://0.0.0.0:8000/ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="./rita.min.js"></script>
+<div id="result"></div>
+<input id="slider1" type=range min=1.0 max=3.0 step=1 />
+<input id="new" type=button value=new />
+<script>
+    const resultDiv = document.querySelector('#result');
+    const cuteSlider = document.querySelector('#slider1');
+    const newButton = document.querySelector('#new');
+
+    const rg = new RiGrammar();
+
+    cuteSlider.addEventListener('change', function (event) {
+        resultDiv.innerHTML = buildSentence(event.target.value);
+    })
+
+    newButton.addEventListener('click', function (event) {
+        resultDiv.innerHTML = buildSentence(cuteSlider.value);
+        console.log(cuteSlider.value)
+    })
+
+    const boost = function (dimension, val) {
+        if (val == dimension) {
+            return 1000
+        } else {
+            return 1
+        }
+    }
+
+    const buildSentence = function (cuteness) {
+        rg.addRule("<start>", "The <animal> <action>");
+        rg.addRule("<animal>", "cat", boost(cuteness, 3));
+        rg.addRule("<animal>", "dog", boost(cuteness, 2));
+        rg.addRule("<animal>", "chicken", boost(cuteness, 1));
+        rg.addRule("<action>", "barks | meows | screams");
+        return rg.expand();
+    }
+
+    resultDiv.innerHTML = buildSentence(0);
+</script>
+<html>
