@@ -1,11 +1,36 @@
 <html>
 <!-- Terminal-Befehl: python -m SimpleHTTPServer 8000 -->
 <!-- Server-URL: http://0.0.0.0:8000/ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="./rita.min.js"></script>
-<div id="result"></div>
-<input id="slider1" type=range min=1.0 max=3.0 step=1 />
-<input id="new" type=button value=new />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./bulma/css/bulma.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./bulma-slider/dist/css/bulma-slider.min.css" media="screen" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="./rita.min.js"></script>
+</head>
+<body>
+        <section class="section">
+            <div class="container">
+                <h1 class="title">
+                    <div id="result"></div>
+                </h1>
+            </div>
+            <div id="boxcolumn" class="column is-one-third is-offset-one-third">
+                <div class="box has-text-centered">
+                    <div class="columns">
+                        <div class="column is-one-third"> <p class="left"> nice </p> </div>
+                        <div class="column">okay</div>
+                        <div class="column"> <p class="right"> bad </p></div>
+                    </div>
+                    <input class="slider is-fullwidth" id="slider1" type=range min=1.0 max=3.0 step=1 />
+                    <input class="button is-large is-primary is is-fullwidth" id="new" type=button value="generate a new one!" />
+                </div>
+            </div>
+        </section>
+    <div id="result"></div>
+</body>
 <script>
     const resultDiv = document.querySelector('#result');
     const cuteSlider = document.querySelector('#slider1');
@@ -31,8 +56,23 @@
     }
 
     const buildSentence = function (cuteness) {
-        rg.addRule("<start>", "The <adjektiv> <nomen> <verb>");
-        rg.addRule("<adjektiv>", "psychopathic | malicious | braindead | creepy | dirty | fat | filthy | mad | nasty | nutty | radical | stupid | trash-minded | ugly | wicked | stingy | autistic | bizarre | clueless | belligerent | big-headed | bitchy | changeable | clinging | compulsive | cowardly | cruel | deceitful | dishonest | dogmatic | foolish | foolhardy | greedy | grumpy | gullible | harsh | impulsive | inconsiderate | intolerant | irresponsible | jealous | lazy | Machiavellian | materialistic | mean | miserly | narrow-minded | nasty | naughty | nervous | obsessive | obstinate | overemotional | rerverse | pessimistic | pompous | possessive | pusillanimous | rude | ruthless | selfish | stupid | superficial | tactless | thoughtless | truculent | unkind | unpredictable | unreliable | untidy | untrustworthy | vague | vain | vengeful | vulgar | weak-willed", boost(cuteness, 3));
+        rg.addRule("<start>", "<5-line> </br> <7-line> </br> <5-line>");
+        rg.addRule("<5-line>", "<1> <4> |<1> <3> <1> |<1> <1> <3> | <1> <2> <2> | <1> <2> <1> <1> | <1> <1> <2> <1> | <1> <1> <1> <2> | <1> <1> <1> <1> <1> | <2> <3> | <2> <2> <1> | <2> <1> <2> | <2> <1> <1> <1> | <3> <2> | <3> <1> <1> | <4> <1>");
+        rg.addRule("<7-line>", "<1> <1> <5-line> | <2> <5-line> | <5-line> <1> <1> | <5-line> <2>");
+        rg.addRule("<1>", "rat | pig | cock | eel | ant | louse | roach | snail | worm | duck | cunt | bitch | hoe | milf | fuzz | jerk | trap | kraut | slut | slag | dick | fat | mad | cruel | vain | harsh | cheats | cries | begs | boasts | dies | drowns | fails | kicks | kills | lies | pays | pees | shoots | squirts | wanks | eats | burns | fists | fucks | pukes | spanks | stabs", boost(cuteness, 3));
+        rg.addRule("<1>", "bull | duck | hen | mare | bat | lynx | whale | quail | clam | squid | cheap | deaf | dull | weak | calls | coughs | fights | prays | reads | screams | talks | tries | tweets | waits", boost(cuteness, 2));
+        rg.addRule("<1>", "cat | dog | horse | bear | deer |  elk | fox | hare | mouse | wolf | seal | crane | owl | swan | bee | heart | dad | king | queen | heart | cool | good | dreams | flies | jumps | knits | laughs | learns | likes | lives | loves | naps | paints | sings | sleeps | smiles", boost(cuteness, 1));
+        rg.addRule("<2>", "donkey | goose | coyote | monkey | sperm whale | walrus | partridge | turkey | vulture | cricket | horsefly | nazi  | hitler | retard | idiot | wanker | bastard | rapist | asshole | fucker | pornstar | redneck | downie | nigger | jesus | scumbag | sucker | moron | jackass | cheater | dosser | fuckboy | dickhead | penis | nipple | billy | jimmy | killer | bobby | gaylord | braindead | creepy | dirty | filthy | nasty | nutty | stupid | ugly | wicked | stingy | bizarre | clueless | bitchy | clinging | foolish | greedy | grumpy | jealous | lazy | nasty | naughty | nervous | rerverse | pompous | rude | ruthless | selfish | stupid | tactless | thoughtless | unkind | vengeful | vulgar | rages | blames | crashes | destroys | disturbs | deepthroats | swallows | pukes | strangles", boost(cuteness, 3));
+        rg.addRule("<2>", "camel | ferret | otter | raccoon | weasel | zebra | blackbird | ostrich | seagull | sparrow | swallow | salmon | lizard | viper | lobster | cunning | cynical | boastful | callous | careless | fussy | bossy | angry | bizarre | boring | clumsy | dizzy | moody | silly | sneaky | stubborn | timid | touchy | zealous | bathes | changes | forgets | leaves | marries | moves | searches | shaves | showers | sneezes | snores | washes", boost(cuteness, 2));
+        rg.addRule("<2>", "horse | kitten | reindeer | dormouse | lion | mouse | panther | rabbit | squirrel | tiger | dolphin | eagle | falcon | penguin | turtle | beetle | hedgehog | lover | mister | mama | parents | ghandi | bruce lee | herbert | teacher | artist | doggo | perfect | patient | angelic | gentle | cares | comes | dances | giggles | kisses | rules | shares | travels", boost(cuteness, 1));
+        rg.addRule("<3>", "coyote | grasshopper | mosquito | pedophile | bumfucker | vagina | wannabe | malicious | trash-minded | belligerent | big-headed | changeable | compulsive | cowardly | deceitful | dishonest | dogmatic | foolhardy | gullible | impulsive | miserly | narrow-minded | obsessive | obstinate | possessive | truculent | weak-willed | disagrees | demolishes | penetrates | terrorizes", boost(cuteness, 3));
+        rg.addRule("<3>", "antelope | elephant | killer whale | crocodile | scrum master | bone-idle | impatient | impolite | flirtatious | finicky | detached | cynical | demanding | indiscreet | quarrelsome | sarcastic | secretive | resentful | average | self-centred | disappears | survives", boost(cuteness, 2));
+        rg.addRule("<3>", "madame | chuck norris | keanu reeves | maria | peacemaker  | adorable | enlightened | fantastic | behaves | explores | meditates | celebrates", boost(cuteness, 1));
+        rg.addRule("<4>", "psychopathic | untrustworthy | unpredictable | inconsiderate | narrow-minded | pusillanimous | cuntdestroyer | sperminator | serial killer", boost(cuteness, 3));
+        rg.addRule("<4>", "cantankerous | domineering | conservative | inconsistent | indecisive | interfering | inflexible | overcritical | parsimonious | patronizing | quick-tempered | self-indulgent", boost(cuteness, 2));
+        rg.addRule("<4>", "forgiveness | eternity | intelligent | inspiration | serenity | righteousness | motivation | absolution | adorable | innovation | excitement", boost(cuteness, 1));
+        return rg.expand();
+    /*  rg.addRule("<adjektiv>", "psychopathic | malicious | braindead | creepy | dirty | fat | filthy | mad | nasty | nutty | radical | stupid | trash-minded | ugly | wicked | stingy | autistic | bizarre | clueless | belligerent | big-headed | bitchy | changeable | clinging | compulsive | cowardly | cruel | deceitful | dishonest | dogmatic | foolish | foolhardy | greedy | grumpy | gullible | harsh | impulsive | inconsiderate | intolerant | irresponsible | jealous | lazy | Machiavellian | materialistic | mean | miserly | narrow-minded | nasty | naughty | nervous | obsessive | obstinate | overemotional | rerverse | pessimistic | pompous | possessive | pusillanimous | rude | ruthless | selfish | stupid | superficial | tactless | thoughtless | truculent | unkind | unpredictable | unreliable | untidy | untrustworthy | vague | vain | vengeful | vulgar | weak-willed", boost(cuteness, 3));
         rg.addRule("<adjektiv>", "cunning | cynical | boastful | bone-idle | callous | cantankerous | careless | impatient | impolite | fussy | flirtatious | finicky | domineering | detached | conservative | bossy | angry | bizarre | boring | cheap | clumsy | cynical | deaf | demanding | dizzy | dull | inconsistent | indiscreet | indecisive | interfering | inflexible | moody | overcritical | parsimonious | patronizing | quarrelsome | sarcastic | secretive | quick-tempered | resentful | silly | sneaky | stubborn | timid | touchy | weak | zealous | average | self-centred | self-indulgent | ", boost(cuteness, 2));
         rg.addRule("<adjektiv>", "perfect | patient | angelic | adorable | cool | enlightened | fantastic | gentle | good", boost(cuteness, 1));
         rg.addRule("<nomen>", "rat | donkey | goose | pig | cock | coyote | monkey | rhinoceros | sperm whale | walrus | partridge | turkey | vulture | eel | ant | cricket | grasshopper | horsefly | louse | mosquito | roach | snail | worm | duck | nazi  | hitler | retard | idiot | wanker | cunt | bastard | rapist | pedophile | cuntdestroyer | sperminator | asshole | bitch | hoe | fucker | milf | pornstar | redneck | downie | nigger | jesus | scumbag | bumfucker | sucker | fuzz | jerk | moron | jackass | trap | cheater | kraut | dosser | slut | slag | fuckboy | dickhead | dick | penis | vagina | wannabe | nipple | billy | jimmy | killer | serial killer | bobby | gaylord", boost(cuteness, 3));
@@ -41,7 +81,7 @@
         rg.addRule("<verb>", "cheats | cries | begs | boasts | dies | disagrees | drowns | explodes | fails | kicks | kills | lies | pays | pees | rages | shoots | squirts | wanks | eats |  blames | burns | crashes | demolishes | destroys | disturbs | fists | fucks | penetrates | deepthroats | swallows | pukes | spanks | strangles | stabs | terrorizes", boost(cuteness, 3));
         rg.addRule("<verb>", "calls | bathes | changes | coughs | disappears | fights | forgets | leaves | marries | moves | prays | reads | screams | searches | shaves | showers | sneezes | snores | survives | talks | tries | tweets | waits | washes", boost(cuteness, 2));
         rg.addRule("<verb>", "behaves | cares | comes | dances | dreams | explores | flies | giggles | jumps | kisses | knits | laughs | learns | likes | lives | loves | meditates | naps | paints | celebrates | rules | shares | sings | sleeps | smiles | travels", boost(cuteness, 1));
-        return rg.expand();
+        return rg.expand(); */
     }
 
     resultDiv.innerHTML = buildSentence(0);

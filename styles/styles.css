@@ -1,0 +1,24 @@
+.container {
+    padding-top: 10%;
+    padding-left: 20%;
+}
+
+h1.title {
+    font-size: 3vw;
+}
+
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+#new {
+    margin-top: 5vh;
+}
+
+#boxcolumn {
+    position: fixed;
+    bottom: 20%;
+}
