@@ -1,5 +1,5 @@
 .container {
-    padding-top: 10%;
+    padding-top: 5%;
     padding-left: 20%;
 }
 
@@ -22,5 +22,10 @@ h1.title {
 
 #boxcolumn {
     position: fixed;
-    bottom: 12%;
+    bottom: 8%;
+}
+
+audio {
+    height: 50px !important;
+    margin-top: 5vh;
 }
