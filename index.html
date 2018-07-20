@@ -60,13 +60,65 @@
 
     const boost = function (dimension, val) {
         if (val == dimension) {
-            return 20
+            return 1000
         } else {
             return 1
         }
     }
 
-    const buildSentence = function (cuteness) {
+const buildSentence = function (cuteness) {
+        rg.addRule("<start>", "<6-line> </br> <8-line> </br> <4-line>");
+        rg.addRule("<6-line>", "<32> <31> | <12> <11> <13> <14> <12> <11> | <21> <23> <22> | <12> <11> <23> <22> | <31> <33> | <32> <31> | <21> <13> <14> <21> | <21> <23> <22> | <22> <21> <23> | <22> <22> <21> | <22> <23> <24> | <11> <23> <34>");
+        rg.addRule("<8-line>", "<31> <23> <31> | <31> <33> <21> | <32> <31> <23> | <12> <31> <23> <14> <11> | <11> <14> <12> <11> <13> <14> <12> <11> | <21> <24> <21> <23> | <22> <22> <21> <23> | <12> <12> <31> <23> | <32> <32> <11> <13> | <22> <21> <13> <34>");
+        rg.addRule("<4-line>", "<14> <12> <11> <13> | <12> <11> <13> <11> | <21> <13> <12> | <22> <21> | <21> <23> | <14> <21> <13> | <11> <23> <12> | <31> <13> | <11> <33> | <11> <24> <11> | <12> <11> <23> | <13> <34> | <11> <34>");
+
+        rg.addRule("<11>", "rat | pig | cock | eel | ant | louse | roach | snail | worm | duck | cunt | bitch | hoe | milf | fuzz | jerk | trap | krauts | slut | slag | dick | klaus", boost(cuteness, 3));
+        rg.addRule("<12>", "fat | mad | cruel | vain | harsh | shy | sad | old | pure", boost(cuteness, 3));
+        rg.addRule("<13>", "cheats | cries | begs | boasts | dies | drowns | fails | kicks | kills | lies | pays | pees | shoots | squirts | wanks | eats | burns | fists | fucks | pukes | spanks | stabs", boost(cuteness, 3));
+        rg.addRule("<14>", "a | the | to the | like a | as the | with a | on the | in a | out of a", boost(cuteness, 3));
+
+        rg.addRule("<11>", "bull | duck | hen | mare | bat | lynx | whale | quail | clam | squid | house | hand | hair | phone | man | dude | bro", boost(cuteness, 2));
+        rg.addRule("<12>", "cheap | deaf | dull | weak | slow | ugly | rude | plain | hot", boost(cuteness, 2));
+        rg.addRule("<13>", "calls | coughs | fights | prays | reads | screams | talks | tries | tweets | waits | fights", boost(cuteness, 2));
+        rg.addRule("<14>", "a | the | to the | like a | as the | with a | on the | in a | out of a", boost(cuteness, 2));
+
+        rg.addRule("<11>", "cat | dog | horse | bear | deer | elk | fox | hare | mouse | wolf | seal | crane | owl | swan | bee | heart | dad | king | queen | heart", boost(cuteness, 1));
+        rg.addRule("<12>", "cool | good | nice | best | new | old | glad | kind | soft | wise", boost(cuteness, 1));
+        rg.addRule("<13>", "dreams | flies | jumps | knits | laughs | learns | likes | lives | loves | naps | paints | sings | sleeps | smiles | draws", boost(cuteness, 1));
+        rg.addRule("<14>", "a | the | to the | like a | as the | with a | on the | in a | out of a", boost(cuteness, 1));
+
+        rg.addRule("<21>", "donkey | goose | coyote | monkey | sperm whale | walrus | partridge | turkey | vulture | cricket | horsefly | nazi  | hitler | retard | idiot | wanker | bastard | rapist | asshole | fucker | pornstar | redneck | downie | jesus | scumbag | sucker | moron | jackass | cheater | dosser | fuckboy | dickhead | penis | nipple | billy | jimmy | killer | bobby | gaylord | vegan", boost(cuteness, 3));
+        rg.addRule("<22>", "braindead | creepy | dirty | filthy | nasty | nutty | stupid | ugly | wicked | stingy | bizarre | clueless | bitchy | clinging | foolish | greedy | grumpy | jealous | lazy | nasty | naughty | nervous | rerverse | pompous | rude | ruthless | selfish | stupid | tactless | thoughtless | unkind | vengeful | vulgar | shitty", boost(cuteness, 3));
+        rg.addRule("<23>", "rages | blames | crashes | destroys | disturbs | deepthroats | swallows | pukes | strangles | murders | dickslaps", boost(cuteness, 3));
+        rg.addRule("<24>", "without a | under  the | harder then the | deeper in the | longer as the | close to a | like a", boost(cuteness, 3));
+
+        rg.addRule("<21>", "camel | ferret | otter | raccoon | weasel | zebra | blackbird | ostrich | seagull | sparrow | swallow | salmon | lizard | viper | lobster | garden | jerry | anna | teacup | macbook | putin | batmaaaaaaaan!", boost(cuteness, 2));
+        rg.addRule("<22>", "cunning | cynical | boastful | callous | careless | fussy | bossy | angry | bizarre | boring | clumsy | dizzy | moody | silly | sneaky | stubborn | timid | touchy | zealous | pregnant", boost(cuteness, 2));
+        rg.addRule("<23>", "bathes | changes | forgets | leaves | marries | moves | searches | shaves | showers | sneezes | snores | washes", boost(cuteness, 2));
+        rg.addRule("<24>", "without a | under  the | harder then the | deeper in the | longer as the | close to a | like a", boost(cuteness, 2));
+
+        rg.addRule("<21>", "horse | kitten | reindeer | dormouse | lion | mouse | panther | rabbit | squirrel | tiger | dolphin | eagle | falcon | penguin | turtle | beetle | hedgehog | lover | mister | mama | parents | ghandi | bruce lee | herbert | teacher | artist | doggo | allah", boost(cuteness, 1));
+        rg.addRule("<22>", "perfect | patient | angelic | gentle | awesome | polite | friendly | handsome", boost(cuteness, 1));
+        rg.addRule("<23>", "cares | comes | dances | giggles | kisses | rules | shares | travels | teaches | speaks", boost(cuteness, 1));
+        rg.addRule("<24>", "without a | under  the | harder then the | deeper in the | longer as the | close to a | like a", boost(cuteness, 1));
+
+        rg.addRule("<31>", "coyote | grasshopper | mosquito | bumfucker | vagina | wannabe | cuntdestroyer | sperminator | serial killer | necrophile | domina | mängele | nuclear waste", boost(cuteness, 3));
+        rg.addRule("<32>", "malicious | trash-minded | belligerent | big-headed | changeable | compulsive | cowardly | deceitful | dishonest | dogmatic | foolhardy | gullible | impulsive | miserly | narrow-minded | obsessive | obstinate | possessive | truculent | weak-willed", boost(cuteness, 3));
+        rg.addRule("<33>", "disagrees | demolishes | penetrates | terrorizes | overtakes | optimizes | massacres", boost(cuteness, 3));
+        rg.addRule("<34>", "all night long | to the end | without shit | like a boss", boost(cuteness, 3));
+
+        rg.addRule("<31>", "gucci-gang | antelope | elephant | killer whale | crocodile | scrum master | internet | tekknoclub | projector", boost(cuteness, 2));
+        rg.addRule("<32>", "inflexible | bone-idle | impatient | impolite | flirtatious | finicky | detached | cynical | demanding | indiscreet | quarrelsome | sarcastic | secretive | resentful | average | self-centred | moderate", boost(cuteness, 2));
+        rg.addRule("<33>", "disappears | survives | becomes | promises | continues | menstruates | moderates", boost(cuteness, 2));
+        rg.addRule("<34>", "all night long | to the end | without shit | like a boss", boost(cuteness, 2));
+
+        rg.addRule("<31>", "madame | chuck norris | keanu reeves | maria | peacemaker | allrounder | lord him selves | hello kitty | comic sans | cup of tea | kung fury", boost(cuteness, 1));
+        rg.addRule("<32>", "adorable | enlightened | fantastic | intelligent | adorable | innovative | motivative | very nice | impressive", boost(cuteness, 1));
+        rg.addRule("<33>", "behaves | explores | meditates | celebrates | understands | promises | remembers | continues", boost(cuteness, 1));
+        rg.addRule("<34>", "all night long | to the end | without shit | like a boss", boost(cuteness, 1));
+
+        return rg.expand();
+/*     const buildSentence = function (cuteness) {
         rg.addRule("<start>", "<5-line> </br> <7-line> </br> <5-line>");
         rg.addRule("<5-line>", "<1> <4> |<1> <3> <1> |<1> <1> <3> | <1> <2> <2> | <1> <2> <1> <1> | <1> <1> <2> <1> | <1> <1> <1> <2> | <1> <1> <1> <1> <1> | <2> <3> | <2> <2> <1> | <2> <1> <2> | <2> <1> <1> <1> | <3> <2> | <3> <1> <1> | <4> <1>");
         rg.addRule("<7-line>", "<1> <1> <5-line> | <2> <5-line> | <5-line> <1> <1> | <5-line> <2>");
@@ -82,7 +134,7 @@
         rg.addRule("<4>", "psychopathic | untrustworthy | unpredictable | inconsiderate | narrow-minded | pusillanimous | cuntdestroyer | sperminator | serial killer", boost(cuteness, 3));
         rg.addRule("<4>", "cantankerous | domineering | conservative | inconsistent | indecisive | interfering | inflexible | overcritical | parsimonious | patronizing | quick-tempered | self-indulgent", boost(cuteness, 2));
         rg.addRule("<4>", "forgiveness | eternity | intelligent | inspiration | serenity | righteousness | motivation | absolution | adorable | innovation | excitement", boost(cuteness, 1));
-        return rg.expand();
+        return rg.expand(); */
     /*  rg.addRule("<adjektiv>", "psychopathic | malicious | braindead | creepy | dirty | fat | filthy | mad | nasty | nutty | radical | stupid | trash-minded | ugly | wicked | stingy | autistic | bizarre | clueless | belligerent | big-headed | bitchy | changeable | clinging | compulsive | cowardly | cruel | deceitful | dishonest | dogmatic | foolish | foolhardy | greedy | grumpy | gullible | harsh | impulsive | inconsiderate | intolerant | irresponsible | jealous | lazy | Machiavellian | materialistic | mean | miserly | narrow-minded | nasty | naughty | nervous | obsessive | obstinate | overemotional | rerverse | pessimistic | pompous | possessive | pusillanimous | rude | ruthless | selfish | stupid | superficial | tactless | thoughtless | truculent | unkind | unpredictable | unreliable | untidy | untrustworthy | vague | vain | vengeful | vulgar | weak-willed", boost(cuteness, 3));
         rg.addRule("<adjektiv>", "cunning | cynical | boastful | bone-idle | callous | cantankerous | careless | impatient | impolite | fussy | flirtatious | finicky | domineering | detached | conservative | bossy | angry | bizarre | boring | cheap | clumsy | cynical | deaf | demanding | dizzy | dull | inconsistent | indiscreet | indecisive | interfering | inflexible | moody | overcritical | parsimonious | patronizing | quarrelsome | sarcastic | secretive | quick-tempered | resentful | silly | sneaky | stubborn | timid | touchy | weak | zealous | average | self-centred | self-indulgent | ", boost(cuteness, 2));
         rg.addRule("<adjektiv>", "perfect | patient | angelic | adorable | cool | enlightened | fantastic | gentle | good", boost(cuteness, 1));
