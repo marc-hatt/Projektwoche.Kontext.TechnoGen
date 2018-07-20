@@ -72,7 +72,21 @@ audio {
     margin: 2vw;
 }
 
-a {
+#link {
     font-weight: bold;
-    color: #e6004c !important;
+    color: #e6004c;
+}
+
+#link:hover {
+    color: #4d0000;
+    -webkit-transition: color 500ms linear;
+    -ms-transition: color 500ms linear;
+    transition: color 500ms linear;
+}
+
+#new:hover {
+    background-color: #4d0000;
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
 }
